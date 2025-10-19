@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtres Convolutifs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+        <div class="container">
+            <h1>Application de Filtres </h1>
+            <p>Ce TP pédagogique illustre efficacement les principes fondamentaux des opérations de convolution dans le domaine de la vision par ordinateur, tout en montrant l'utilisation pratique de PyTorch pour le traitement d'images.</p>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="gestion-stock.html">Gestion de Stock</a>
+                <a href="gestion-candidats.html">Gestion des Candidats</a>
+                <a href="detection-maladies.html">Détection Médicale</a>
+                <a href="tifinagh.html">Tifinagh</a>
+                <a href="mnist.html">Mnist</a>
+                <a href="res_net.html">Res-Net</a>
+            </div>
+        </div>
+    </header>
+
+   <div class="cont">
+    <div class="project-gr">
+        <div class="features-li">
+            <h2>Objectif Principal</h2>
+            <p>Ce code démontre comment appliquer différents filtres convolutifs à des images (en niveaux de gris et en couleurs) en utilisant PyTorch. Les filtres incluent :</p>
+            <ul>
+                <li>Flou (moyenneur)</li>
+                <li>Détection de contours (Sobel horizontal/vertical)</li>
+                <li>Accentuation (sharpen)</li>
+                <li>Effet aléatoire</li>
+            </ul>
+
+            <h2>Flux de Traitement</h2>
+            <ol>
+                <li>Chargement de l'Image</li>
+                <ul>
+                    <li>Fonction : load_image_pytorch()</li>
+                    <li>Actions :</li>
+                    <ol>
+                        <li>Lit l'image avec OpenCV</li>
+                        <li>Convertit en niveaux de gris ou conserve les canaux RGB</li>
+                        <li>Transforme en tenseur PyTorch</li>
+                        <li>Normalise les valeurs des pixels entre 0 et 1</li>
+                        <li>Formate le tenseur selon la convention PyTorch : [batch_size, canaux, hauteur, largeur]</li>
+                    </ol>
+                </ul>
+                <li>Application des Filtres</li>
+                <ul>
+                    <li>Fonction : apply_convolution_pytorch()</li>
+                    <li>Mécanisme :</li>
+                    <ol>
+                        <li>Adapte le noyau 2D au format 4D requis par PyTorch</li>
+                        <li>Pour les images RGB, applique le même filtre à chaque canal indépendamment</li>
+                        <li>Utilise un padding pour conserver la taille originale de l'image</li>
+                        <li>Applique la convolution via F.conv2d</li>
+                    </ol>
+                </ul>
+                <li> Visualisation</li>
+                <ul>
+                    <li>Fonction : display_results_pytorch()</li>
+                    <li>Processus :</li>
+                    <ol>
+                        <li>Convertit les tenseurs PyTorch en format compatible avec Matplotlib</li>
+                        <li>Affiche côte à côte l'image originale et l'image filtrée</li>
+                        <li>Adapte l'affichage pour les images en niveaux de gris ou en couleurs</li>
+                    </ol>
+                </ul>
+                <li> Bibliothèque de Filtres</li>
+                <ul>
+                    <li>Fonction : get_kernels_pytorch()</li>
+                    <li>Contenu :</li>
+                    <ol>
+                        <li>Définit plusieurs noyaux de convolution classiques</li>
+                        <li>Chaque noyau produit un effet spécifique sur l'image</li>
+                        <li>Le noyau aléatoire montre l'effet de poids non-structurés</li>
+                    </ol>
+                </ul>
+            </ol>
+
+            <h2>Points Techniques Importants</h2>
+            <ol>
+                <li>Format des Tenseurs :</li>
+                <ul>
+                    <li>PyTorch attend les images sous forme [N, C, H, W] (batch, canaux, hauteur, largeur)</li>
+                    <li>Les opérations de convolution nécessitent des noyaux au format [out_channels, in_channels, kH, kW]</li>
+                </ul>
+                <li>Normalisation :</li>
+                <ul>
+                    <li>Les valeurs des pixels sont ramenées dans l'intervalle [0, 1] pour une meilleure stabilité numérique</li>
+                </ul>
+                <li>Gestion des Couleurs :</li>
+                <ul>
+                    <li>Pour les images RGB, le même filtre est appliqué séparément à chaque canal (R, G, B)</li>
+                    <li>Cela préserve les relations entre canaux tout en appliquant la transformation</li>
+                </ul>
+                <li>Padding :</li>
+                <ul>
+                    <li>Le padding est calculé automatiquement pour maintenir la taille originale de l'image après convolution</li>
+                </ul>
+            </Ol>
+
+            <h2> Applications Pratiques</h2>
+            <ul>
+                <li>Comprendre les opérations de base du traitement d'image</li>
+                <li>Préparer des données pour des réseaux neuronaux convolutifs</li>
+                <li>Implémenter des effets photographiques simples</li>
+                <li>Servir de base à des algorithmes plus complexes (détection de caractéristiques, etc.)</li>
+            </ul>
+        </div>
+
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">1. Filtre BLUR </h3>
+            <img src="/images/filtres/blur.png" alt="Page d'authentification" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">2. Filtre BLUR RGB</h3>
+            <img src="images/filtres/blur rgb.png" alt="Page d'accueil" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">3. Filter Random</h3>
+            <img src="images/filtres/random.png" alt="Ajout d'entrée" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">4. Filter Random RGB</h3>
+            <img src="images/filtres/random rgb.png" alt="Page d'authentification" class="project-screen">
+        </div>
+        <div class="screenshot">
+            <h3 style="text-align: center;">5. Filter Sharpen</h3>
+            <img src="images/filtres/sharpen.png" alt="Page d'authentification" class="project-screen">
+        </div>
+
+        <div class="screenshot">
+            <h3 style="text-align: center;">6. Filter Sharpen RGB</h3>
+            <img src="images/filtres/sharpen rgb.png" alt="Page d'authentification" class="project-screen">
+        </div>
+
+        <div class="screenshot">
+            <h3 style="text-align: center;">7. Filter Sobel_h</h3>
+            <img src="images/filtres/sobel_h.png" alt="Page d'authentification" class="project-screen">
+        </div>
+
+        <div class="screenshot">
+            <h3 style="text-align: center;">8. Filter Sobel_h RGB</h3>
+            <img src="images/filtres/sobel_h rgb.png" alt="Page d'authentification" class="project-screen">
+        </div>
+
+        <div class="screenshot">
+            <h3 style="text-align: center;">9. Filter Sobel_V</h3>
+            <img src="images/filtres/sobel_v.png" alt="Page d'authentification" class="project-screen">
+        </div>
+
+        <div class="screenshot">
+            <h3 style="text-align: center;">10. Filter Sobel_h RGB</h3>
+            <img src="images/filtres/sobel_v rgb.png" alt="Page d'authentification" class="project-screen">
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

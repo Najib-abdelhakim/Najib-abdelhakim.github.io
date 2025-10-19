@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Mon Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="themes.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">AH_N</a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Contactez-moi</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Coordonnées</h3>
+                    <p><i class="fas fa-envelope"></i> najibabdelhakim01@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +212 6 31 19 32 00</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Maroc, Témara</p>
+                </div>
+
+                <!-- Formulaire avec Formspree -->
+                <form class="contact-form" action="https://formspree.io/f/mjkolreg" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <!-- Zone d'affichage du message -->
+                    <div id="form-message" style="margin-top:10px; font-weight:bold;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://github.com/Hakim209-prog"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/najib-abdelhakim-258a272b3" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+
+    <!-- Script pour message de confirmation -->
+    <script>
+    document.querySelector('.contact-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Empêche le rechargement de la page
+
+        var form = this;
+        var messageBox = document.getElementById("form-message");
+
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                messageBox.textContent = "✅ Merci ! Votre message a bien été envoyé.";
+                messageBox.style.color = "green";
+                form.reset();
+            } else {
+                messageBox.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
+                messageBox.style.color = "red";
+            }
+        }).catch(error => {
+            messageBox.textContent = "⚠️ Impossible d'envoyer le message. Vérifiez votre connexion.";
+            messageBox.style.color = "orange";
+        });
+    });
+    </script>
+</body>
+</html>

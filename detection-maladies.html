@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détection Automatique de Maladies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+        <div class="container">
+            <h1>Détection Intelligente de Maladies</h1>
+            <p>Solution IA pour le diagnostic médical assisté</p>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="gestion-stock.html">Gestion de Stock</a>
+                <a href="gestion-candidats.html">Gestion des Candidats</a>
+                <a href="tifinagh.html">Tifinagh</a>
+                <a href="mnist.html">Mnist</a>
+                <a href="filtre.html">filtres</a>
+                <a href="res_net.html">Res-Net</a>
+            </div>
+        </div>
+    </header>
+
+   <div class="cont">
+    <div class="project-gr">
+        <div class="features-li">
+            <h2>Objectif</h2>
+            <p>L'application a pour but de <strong>prédire le risque de maladie cardiaque</strong> chez un patient en se basant sur des données cliniques et physiologiques. Elle utilise un modèle <strong>d'apprentissage automatique</strong> (Random Forest) pour analyser 13 caractéristiques médicales et déterminer si le patient présente ou non des signes de pathologie cardiaque.</p>
+
+            <h2>Spécifications Techniques</h2>
+            <ol>
+                <li>Modèle de Machine Learning
+                    <ul>
+                        <li>Algorithme: Random Forest Classifier</li>
+                        <li>Nombre d'arbres: 100 (n_estimators=100)</li>
+                        <li>Random State: 42 (pour la reproductibilité)</li>
+                        <li>Précision: Non spécifiée dans le code (nécessiterait une évaluation)</li>
+                    </ul>
+                </li>
+                <li>Pré-traitement des Données
+                    <ul>
+                        <li>Normalisation: StandardScaler (moyenne=0, écart-type=1)</li>
+                        <li>Gestion des valeurs manquantes: Suppression des lignes avec valeurs manquantes</li>
+                        <li>Binarisation de la cible:
+                            <ul>
+                                <li>0 = absence de maladie cardiaque</li>
+                                <li>1 = présence de maladie cardiaque</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Données d'Entrée
+                    <ul>
+                        <li>age - Âge en années</li>
+                        <li>sex - Sexe (1 = homme, 0 = femme)</li>
+                        <li>cp - Type de douleur thoracique</li>
+                        <li>trestbps - Pression artérielle au repos</li>
+                        <li>chol - Cholestérol sérique en mg/dl</li>
+                        <li>fbs - Glycémie à jeun > 120 mg/dl (1 = vrai, 0 = faux)</li>
+                        <li>restecg - Résultats électrocardiographiques au repos</li>
+                        <li>thalach - Fréquence cardiaque maximale atteinte</li>
+                        <li>exang - Angine induite par l'exercice (1 = oui, 0 = non)</li>
+                        <li>oldpeak - Dépression ST induite par l'exercice</li>
+                        <li>slope - Pente du segment ST de pointe</li>
+                        <li>ca - Nombre de vaisseaux principaux colorés</li>
+                        <li>thal - Thalassémie</li>
+                    </ul>
+                </li>
+                <li>Infrastructure
+                    <ul>
+                        <li>Langage: Python</li>
+                        <li>Bibliothèques principales:
+                            <ul>
+                                <li>scikit-learn (pour le modèle ML)</li>
+                                <li>pandas (pour le traitement des données)</li>
+                                <li>joblib (pour la sauvegarde du modèle)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2>Performance</h2>
+            <ul>
+                <li>Temps d'entraînement: Non mesuré dans le code</li>
+                <li>Mémoire requise: Dépend de la taille des données</li>
+            </ul>
+
+            <h2>Limitations</h2>
+            <ul>
+                <li>Nécessite des données complètes (pas de gestion avancée des valeurs manquantes)</li>
+                <li>Modèle non évalué (aucune métrique de performance calculée)</li>
+                <li>Pas de validation croisée implémentée</li>
+            </ul>
+
+            <h2>Évolutivité</h2>
+            <ul>
+                <li>Le modèle peut être mis à jour avec de nouvelles données</li>
+                <li>Possibilité d'ajouter d'autres algorithmes pour comparaison</li>
+            </ul>
+        </div>
+
+
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">1. Page d'accueil</h3>
+            <img src="images/D_M/12.PNG" alt="Page d'authentification" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">2. Page d'accueil</h3>
+            <img src="images/D_M/13.PNG" alt="Page d'accueil" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">3. Pathologies Détectées</h3>
+            <img src="images/D_M/14.PNG" alt="Ajout d'entrée" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">4. Inscrire/Connect</h3>
+            <img src="/images/D_M/15.PNG" alt="Gestion des entrées" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">5. Variables Médicales</h3>
+            <img src="images/D_M/16.PNG" alt="Ajout de sortie" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">6. Fenêtre d'analyse</h3>
+            <img src="images/D_M/17.PNG" alt="Gestion des sorties" class="project-screen">
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>

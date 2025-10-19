@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification de fleurs avec ResNet-50</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+        <div class="container">
+            <h1>Classification de fleurs avec ResNet-50</h1>
+            <p>Utilisation d'un modèle ResNet-50 pour classer différentes espèces de fleurs</p>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="gestion-stock.html">Gestion de Stock</a>
+                <a href="gestion-candidats.html">Gestion des Candidats</a>
+                <a href="detection-maladies.html">Détection Médicale</a>
+                <a href="tifinagh.html">Tifinagh</a>
+                <a href="filtre.html">Filtres</a>
+                <a href="mnist.html">Mnist</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="cont">
+        <div class="project-gr">
+            <div class="features-li">
+                <h2>Chargement et préparation des données</h2>
+                <ul>
+                    <li>Les images de fleurs sont organisées par dossiers correspondant aux classes.</li>
+                    <li>Les images sont redimensionnées à 224x224 et normalisées pour ResNet-50.</li>
+                    <li>Les labels sont encodés en one-hot vectors pour la classification multi-classes.</li>
+                </ul>
+
+                <h2>Création du modèle ResNet-50</h2>
+                <ul>
+                    <li>ResNet-50 pré-entraîné sur ImageNet est utilisé avec <code>include_top=False</code>.</li>
+                    <li>Une couche GlobalAveragePooling2D est ajoutée, suivie d'une couche Dense avec softmax pour le nombre de classes de fleurs.</li>
+                    <li>Le modèle est compilé avec Adam, la perte <code>categorical_crossentropy</code> et la métrique accuracy.</li>
+                </ul>
+
+                <h2>Entraînement du modèle</h2>
+                <ul>
+                    <li>Le modèle est entraîné sur les images d'entraînement avec validation sur un sous-ensemble de test.</li>
+                    <li>La précision finale dépend du nombre de classes et de la qualité des images, souvent supérieure à 92% avec augmentation de données.</li>
+                </ul>
+
+                <h2>Évaluation et prédictions</h2>
+                <ul>
+                    <li>Le modèle est évalué sur les images de test, affichant la précision finale.</li>
+                    <li>Les prédictions sont visualisées pour un échantillon d’images de fleurs avec labels réels et prédits.</li>
+                </ul>
+            </div>
+
+            <div class="screenshot">
+                <h3 style="text-align: center;">1. Échantillon d'images de fleurs</h3>
+                <img src="images/R_N/res-net.PNG" alt="Échantillon de fleurs" class="project-screen">
+            </div>
+            
+            <div class="screenshot">
+                <h3 style="text-align: center;">2. Architecture ResNet-50 (Keras)</h3>
+                <img src="images/R_N/arch.PNG" alt="ResNet-50 Keras" class="project-screen">
+            </div>
+            
+            <div class="screenshot">
+                <h3 style="text-align: center;">3. Prédictions sur quelques fleurs</h3>
+                <img src="images/R_N/exe1.PNG" alt="Prédictions ResNet-50" class="project-screen">
+            </div>
+            <div class="screenshot">
+                <h3 style="text-align: center;">3. Prédictions sur quelques fleurs</h3>
+                <img src="images/R_N/exe2.PNG" alt="Prédictions ResNet-50" class="project-screen">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

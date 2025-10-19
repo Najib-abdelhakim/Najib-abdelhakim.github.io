@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification de Caractères Tifinagh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+        <div class="container">
+            <h1>Classification de Caractères Tifinagh avec MLP</h1>
+            <p>Ce TP porte sur la classification de caractères Tifinagh (alphabet Amazigh) en utilisant des réseaux de neurones MLP (Multi-Layer Perceptron) implémentés avec PyTorch et TensorFlow.</p>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="gestion-stock.html">Gestion de Stock</a>
+                <a href="gestion-candidats.html">Gestion des Candidats</a>
+                <a href="detection-maladies.html">Détection Médicale</a>
+                <a href="mnist.html">Mnist</a>
+                <a href="filtre.html">Filtres</a>
+                <a href="res_net.html">Res-Net</a>
+            </div>
+        </div>
+    </header>
+
+   <div class="cont">
+    <div class="project-gr">
+        <div class="features-li">
+            <h2>Données</h2>
+            <ul>
+                <li>Source:</li>
+                <p>AMHCD_64 (Arabic and Handwritten Character Dataset)</p>
+                <li>Classes:</li>
+                <p>33 caractères Tifinagh courants</p>
+                <li>Taille du dataset:</li>
+                <p>Total: 25,740 images (20,592 train / 5,148 validation)</p>
+                <li>Prétraitement:</li>
+                <p>Redimensionnement à 32x32 pixels</p>
+                <p>Normalisation des valeurs de pixel entre -1 et 1 (PyTorch) ou 0 et 1 (TensorFlow)</p>
+            </ul>
+
+            <h2>Modèles MLP</h2>
+            <ol>
+                <li>Architecture Commune (PyTorch et TensorFlow)</li>
+                <ol>
+                    <li>Couche d'entrée: Flatten (3072 dimensions pour 32x32x3)</li>
+                    <li>Couche cachée 1: 64 neurones, ReLU</li>
+                    <li>Couche cachée 2: 32 neurones, ReLU</li>
+                    <li>Couche de sortie: 33 neurones (pas de softmax)</li>
+                </ol>
+                <li>Spécificités par Framework</li>
+                <ol>
+                    <li>PyTorch</li>
+                    <ol>
+                        <li>Optimiseur: Adam (lr=0.001)</li>
+                        <li>Fonction de coût: CrossEntropy + L2 Regularization (λ=0.001)</li>
+                        <li>Entraînement: 20 epochs, batch_size=64</li>
+                    </ol>
+                    <li>TensorFlow/Keras</li>
+                    <ol>
+                        <li>Optimiseur: Adam (lr=0.001)</li>
+                        <li>Fonction de coût: SparseCategoricalCrossentropy (from_logits=True) avec L2 Regularization</li>
+                        <li>Entraînement: 20 epochs, batch_size=64</li>
+                    </ol>
+                </ol>
+            </ol>
+
+            <h2>Résultats</h2>
+            <ul>
+                <li>PyTorch</li>
+                <ol>
+                    <li>Meilleure précision:</li>
+                    <ol>
+                        <li>Train: 90.59%</li>
+                        <li>Validation: 90.58%</li>
+                    </ol>
+                    <li>Courbe d'apprentissage:</li>
+                    <ol>
+                        <li>Convergence rapide (atteint ~80% en 5 epochs)</li>
+                        <li>Pas de sur-apprentissage marqué</li>
+                        <li>Très bon alignement train/val en fin d'entraînement</li>
+                    </ol>
+                </ol>
+                <li>TensorFlow</li>
+                <ol>
+                    <li>Meilleure précision:</li>
+                    <ol>
+                        <li>Train: 78.54%</li>
+                        <li>Validation: 78.69%</li>
+                    </ol>
+                    <li>Courbe d'apprentissage:</li>
+                    <ol>
+                        <li>Convergence plus lente que PyTorch</li>
+                        <li>Écart plus important entre train/val</li>
+                        <li>Performances globalement inférieures à PyTorch</li>
+                    </ol>
+                </ol>
+            </ul>
+
+            <h2>Observations</h2>
+            <ol>
+                <li>Performance: L'implémentation PyTorch a significativement surpassé TensorFlow (différence de ~12%)</li>
+                <li>Vitesse: PyTorch s'est montré plus rapide malgré une implémentation manuelle plus complexe</li>
+                <li>Stabilité: Les deux modèles ont montré une bonne stabilité grâce à la régularisation L2</li>
+                <li>Sur-apprentissage: Mieux contrôlé dans l'implémentation PyTorch</li>
+            </ol>
+
+            <h2>Recommandations</h2>
+            <ol>
+                <li>Pour ce projet: Préférer l'implémentation PyTorch pour ses meilleures performances</li>
+            </ol>
+        </div>
+
+
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">1. Courbe de précision Version PyTorch </h3>
+            <img src="images/tifinagh/cPT.png" alt="Page d'authentification" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">2. Matrice de confusion Version PyTorch </h3>
+            <img src="images/tifinagh/cmPT.png" alt="Page d'accueil" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">3. Courbe de précision Version tensorflow</h3>
+            <img src="images/tifinagh/cTF.png" alt="Ajout d'entrée" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">4. Matrice de confusion Version tensorflow</h3>
+            <img src="images/tifinagh/cmTF.png" alt="Ajout d'entrée" class="project-screen">
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

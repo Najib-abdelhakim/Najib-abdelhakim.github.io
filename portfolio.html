@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Mon Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="themes.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">AH_N</a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="portfolio">
+        <div class="container">
+            <h2>Mes Projets</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="data">data</button>
+                <button class="filter-btn" data-filter="IA">IA</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="project-card" data-category="web">
+                    <img src="images/G_S/12.webp" alt="Projet 1">
+                    <div class="project-info">
+                        <h3>Application web de gestion de stock</h3>
+                        <p>Suivre les entrées/sorties de produits et Gérer les niveaux de stock</p>
+                        <a href="gestion-stock.html" class="btn btn-small">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <img src="images/G_C/13.webp" alt="Projet 2">
+                    <div class="project-info">
+                        <h3>Site web de Gestion des Candidats</h3>
+                        <p>un système de gestion des candidats avec des tests de calssifacation</p>
+                        <a href="gestion-candidats.html" class="btn btn-small">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="IA">
+                    <img src="images/D_M/15.webp" alt="Projet 3">
+                    <div class="project-info">
+                        <h3>Maladies Détectées</h3>
+                        <p>Plateforme intelligente de dépistage des risques cardiaques</p>
+                        <a href="detection-maladies.html" class="btn btn-small">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="data">
+                    <img src="images/mnist/Capture.png" alt="Projet 3">
+                    <div class="project-info">
+                        <h3>Classification</h3>
+                        <p>Classification des Chiffres MNIST</p>
+                        <a href="mnist.html" class="btn btn-small">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="data">
+                    <img src="images/tifinagh/captur.jpg" alt="Projet 3">
+                    <div class="project-info">
+                        <h3>Classification</h3>
+                        <p>Classification des Caractères Tifinagh (RGB)</p>
+                        <a href="tifinagh.html" class="btn btn-small">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="data">
+                    <img src="images/filtres/captur.webp" alt="Projet 3">
+                    <div class="project-info">
+                        <h3>Filtres</h3>
+                        <p> Application de Filtres Convolutifs</p>
+                        <a href="filtre.html" class="btn btn-small">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="data">
+                    <img src="images/R_N/res-net.PNG" alt="Projet 3">
+                    <div class="project-info">
+                        <h3>Classification</h3>
+                        <p>Classification des Flowers Res-Net 50</p>
+                        <a href="res_net.html" class="btn btn-small">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://github.com/Hakim209-prog"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/najib-abdelhakim-258a272b3" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>

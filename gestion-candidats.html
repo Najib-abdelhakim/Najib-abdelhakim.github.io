@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Système de Gestion des Candidats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+        <div class="container">
+            <h1>Gestion des Candidats</h1>
+            <p></p>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="gestion-stock.html">Gestion de Stock</a>
+                <a href="detection-maladies.html">Détection Médicale</a>
+                <a href="tifinagh.html">Tifinagh</a>
+                <a href="mnist.html">Mnist</a>
+                <a href="filtre.html">filtres</a>
+                <a href="res_net.html">Res-Net</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="cont">
+        <div class="project-gr">
+                <div class="features-li">
+                    <h2>Contexte du projet</h2>
+                        <p> Ce projet vise à mettre en place une plateforme de gestion des étudiants, depuis leur inscription jusqu'à l'évaluation finale. Les candidats s'inscrivent en ligne avec vérification de leurs documents et sont automatiquement redirigés vers un test adapté à leur spécialité. Les résultats obtenus sont calculés, sauvegardés dans une base de données PostgreSQL et peuvent être consultés à l'écran ou exportés en PDF. Un espace administrateur est également prévu pour centraliser et analyser les performances des étudiants.</p>
+                    <h2>Notes de projet </h2>
+                        <ul>
+                            <li>L'inscription des étudiants avec vérification des documents</li>
+                            <li> Lapassation de tests par spécialité</li>
+                            <li>Lasauvegarde des résultats en base de données</li>
+                            <li>Unespace admin pour visualiser les résultats</li>
+                            <li>L'export des résultats en PDF</li>
+                        </ul>
+                    <h2>Pages HTML de tests disponibles</h2>
+                        <ul>
+                            <li>Etudiant en informatique : http://localhost:8000/test_informatique</li>
+                            <li>Etudiant en génie civil : http://localhost:8000/test_genie_civil</li>
+                            <li>Etudiant en management : http://localhost:8000/test_management</li>
+                            <li>Etudiant en médecine : http://localhost:8000/test_medecine</li>
+                            <li>Etudiant en électronique : http://localhost:8000/test_electronique</li>
+                        </ul>
+                    <h2>Déroulement du test</h2>
+                    <ul>
+                        <li>Inscription via le formulaire avec spécialité choisie</li>
+                        <li>Redirection automatique vers la page HTML de test</li>
+                        <li>Remplissage et soumission du QCM en ligne</li>
+                        <li>Résultats calculés et sauvegardés dans PostgreSQL </li>
+                        <li> Consultation des résultats affichés `a l'écran</li>
+                    </ul>
+
+                </div>
+            <div class="screenshot">
+                <h3 style="text-align: center;">1.Page d'accueil </h3>
+                <img src="images/G_C/acc.PNG" alt="Interface gestion candidats" class="project-screen">
+            </div>
+            <div class="screenshot">
+                <h3 style="text-align: center;">2.Page d'inscription</h3>
+                <img src="images/G_C/form.PNG" alt="Interface gestion candidats" class="project-screen">
+            </div>
+            <div class="screenshot">
+                <h3 style="text-align: center;">3.message d'error</h3>
+                <img src="images/G_C/inco.PNG" alt="Interface gestion candidats" class="project-screen">
+            </div>            
+            <div class="screenshot">
+                <h3 style="text-align: center;">4.Exemple Page de test</h3>
+                <img src="images/G_C/Exem_test.PNG" alt="Interface gestion candidats" class="project-screen">
+            </div>
+            <div class="screenshot">
+                <h3 style="text-align: center;">5.message de deja passe le test </h3>
+                <img src="images/G_C/er_test.PNG" alt="Interface gestion candidats" class="project-screen">
+            </div>
+            <div class="screenshot">
+                <h3 style="text-align: center;">6.base de données</h3>
+                <img src="images/G_C/list.PNG" alt="Interface gestion candidats" class="project-screen">
+            </div>
+            <div class="screenshot">
+                <h3 style="text-align: center;">7.Espace admin</h3>
+                <img src="images/G_C/con_ad.PNG" alt="Interface gestion candidats" class="project-screen">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

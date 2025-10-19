@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification des données MNIST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+        <div class="container">
+            <h1>Classification des données MNIST</h1>
+            <p>Classification des données MNIST</p>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="gestion-stock.html">Gestion de Stock</a>
+                <a href="gestion-candidats.html">Gestion des Candidats</a>
+                <a href="detection-maladies.html">Détection Médicale</a>
+                <a href="tifinagh.html">Tifinagh</a>
+                <a href="filtre.html">filtres</a>
+                <a href="res_net.html">Res-Net</a>
+            </div>
+        </div>
+    </header>
+
+   <div class="cont">
+    <div class="project-gr">
+        <div class="features-li">
+            <h2>Chargement des données MNIST</h2>
+            <ul>
+                <li>Le code utilise keras.datasets.mnist pour charger les ensembles d'entraînement et de test des images de chiffres manuscrits.</li>
+                <li>Les données sont divisées en train_images, train_labels (images et étiquettes d'entraînement) et test_images, test_labels (images et étiquettes de test).</li>
+            </ul>
+
+            <h2>Visualisation des données</h2>
+            <ol>
+                <li>La distribution des classes est affichée à l'aide de pd.Series(train_labels).value_counts().sort_index().</li>
+                <li>Un échantillon de 10 images est affiché avec leurs étiquettes correspondantes en utilisant matplotlib.pyplot.</li>
+            </ol>
+
+            <h2>Entraînement d'un modèle de classification</h2>
+            <ul>
+                <li>Un modèle séquentiel est créé avec des couches de convolution (Conv2D), de pooling (MaxPooling2D), d'aplatissement (Flatten), et de neurones fully connected (Dense).</li>
+                <li>Le modèle est compilé avec l'optimiseur Adam, la fonction de perte sparse_categorical_crossentropy, et la métrique accuracy.</li>
+                <li>Le modèle est entraîné sur les données d'entraînement avec validation sur les données de test.</li>
+            </ul>
+
+            <h2>Évaluation du modèle</h2>
+            <p>Le modèle est évalué sur les données de test, affichant une précision de 99.22%.</p>
+
+            <h2>Visualisation des prédictions</h2>
+            <p>Les prédictions du modèle sont affichées pour les 10 premières images du jeu de test, avec les étiquettes réelles et prédites.</p>
+        </div>
+
+
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">1. Echantillon d'images</h3>
+            <img src="images/mnist/output.png" alt="Page d'authentification" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">2. Version keras (TF)</h3>
+            <img src="images/mnist/tf.png" alt="Page d'accueil" class="project-screen">
+        </div>
+        
+        <div class="screenshot">
+            <h3 style="text-align: center;">3. Version  Pytorch</h3>
+            <img src="images/mnist/tr.png" alt="Ajout d'entrée" class="project-screen">
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>
